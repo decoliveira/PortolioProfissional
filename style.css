@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+/* Reset básico para remover margens, espaçamentos e bordas padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definir uma fonte padrão */
+body {
+    background: url('img/imgfundo.png') no-repeat center ; /* Imagem de fundo */
+    background-color: white;
+    background-size: cover;
+    transition: background-color 0.3s; /* Transição suave para a mudança de cor */
+    font-family: "Red Hat Display", sans-serif;
+    color: #333; /* Cor do texto */
+    line-height: 1.6;
+    backdrop-filter: blur(60px); /* Aplica o desfoque no fundo */
+}
+
+#top {
+    position: relative; /* Garante que o elemento seja posicionado em relação aos seus pais */
+    top: 0; /* Posiciona o elemento no topo da página */
+  }
+
+/* Estilo para o cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo opaca (80% de opacidade) */
+    color: #b1a364;
+    padding: 10px;
+    text-align: center;
+    position: sticky; /* Cabeçalho se move com a rolagem até alcançar o topo */
+    top: 0; /* Fica fixo no topo quando rolar */
+    z-index: 1000; /* Garantir que o header fique acima dos outros elementos */
+    backdrop-filter: blur(10px); /* (Opcional) Aplica um efeito de desfoque no fundo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* (Opcional) Sombra suave para destaque */
+}
+
+/* Estilo para o título no cabeçalho */
+header h1 {
+    margin: 0 25px 0 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: start;
+}
+
+.link {
+    margin: 8px;
+    text-decoration: none;
+    font-family: "Red Hat Display", sans-serif;
+    color: #b1a364;
+}
+
+.link:hover {
+    color: #675f3e;
+}
+
+button {
+    margin: 0 25px 0 25px;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    background-color: #b1a364;
+    border: none;
+    font-size: 1rem;
+    text-align: end;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #b1a364;
+    background-color: transparent;
+    border: 1px solid #b1a364; /* Aqui definimos a borda */
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Seção principal */
+main {
+    padding: 20px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translate(-60px, 60px); /* Deslocado para a esquerda e para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0s; /* Garante que não há delay */
+}
+
+
+.fade-in.show {
+    opacity: 1;
+    transform: translate(0, 0); /* Move para a posição original */
+}
+
+
+
+.apresentacao {
+
+    display: flex;
+    justify-content: space-between; /* Espaço entre o texto e a imagem */
+    align-items: center; /* Alinha os itens verticalmente */
+    margin: 8%;
+    padding: 20px;
+    gap: 40px; /* Espaçamento entre os elementos */
+}
+
+.apresentacao-texto {
+    flex: 1; /* O texto ocupa uma parte flexível do espaço */
+}
+
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #b1a364;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+#availability-text {
+    font-size: 18px;
+    color: #b1a364;
+    animation: blink 2s ease-in-out infinite; /* Aplica a animação 'blink' com suavidade e de forma contínua */
+}
+
+/* Definição da animação */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Texto totalmente visível no início e no fim da animação */
+    }
+    50% {
+        opacity: 0; /* Texto invisível no meio da animação */
+    }
+}
+
+marquee {
+    background-color: #ffeb92;
+    white-space: nowrap;
+    overflow: hidden;
+    position: fixed;
+    margin-left: -25px;
+    padding: 5px;
+    
+}
+
+marquee span {
+    font-family: "Red Hat Display", sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 30px; /* Adiciona espaço entre os spans */
+    display: inline-block;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(50%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Estilo para imagem */
+.apresentacao-img img {
+    width: 300px; /* Defina o tamanho desejado */
+    height: 300px; /* O mesmo valor da largura para garantir um círculo */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Centraliza e ajusta a imagem dentro do círculo */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); /* Sombra sutil à direita e abaixo */
+
+}
+
+.apresentacao-projetos {
+    margin: 8%;
+    
+}
+
+.apresentacao-projetos h1 {
+    color: #b1a364;
+    margin: 0 25px 0 25px;
+    padding-top: 100px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.apresentacao-works {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projeto, .projeto-inv {
+    display: flex;
+    flex-direction: row; /* Altera para direção horizontal */
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(32, 102, 67);
+    width: 80%;
+    height: 400px;
+    margin: 40px;
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+.projeto:nth-child(1) {
+    background-color: rgb(32, 102, 67);
+  }
+  
+  .projeto-inv:nth-child(2) {
+    display: flex;
+    flex-direction: row-reverse; /* Inverte a direção: imagem à esquerda, texto à direita */
+    background-color: rgb(42, 70, 87);
+  }
+  
+  .projeto:nth-child(3) {
+    background-color: #675f3e;
+  }
+
+  .projeto-inv:nth-child(4) {
+    display: flex;
+    flex-direction: row-reverse; /* Inverte a direção: imagem à esquerda, texto à direita */
+    background-color: #e9bc0a;
+  }
+
+.projeto .projeto3 {
+    margin: 28px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 2rem;
+} 
+
+.projeto .p_projeto3 {
+    margin: 10px 50px 30px ;
+    text-align: start;
+    color: rgb(255, 255, 255);
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 1rem;
+}
+
+.projeto h3, .projeto-inv h3 {
+    margin: 28px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 3rem;
+}
+
+.projeto p, .projeto-inv p {
+    margin: 10px 50px 30px ;
+    text-align: start;
+    color: rgb(255, 255, 255);
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 1.25rem;
+}
+
+.projeto .img-projeto3 {
+    width: 400px;
+    height: 100%;
+    margin: 45px;
+    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    bottom: -100px; /* Ajustar para posicionar a imagem ligeiramente acima */
+    border-radius: 16px;
+}
+
+.projeto img, .projeto-inv img {
+    width: 400px;
+    height: 100%;
+    margin: 45px;
+    box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    bottom: -170px; /* Ajustar para posicionar a imagem ligeiramente acima */
+    border-radius: 16px;
+}
+
+
+
+.galeria {
+  position: relative; /* Torna o container um contêiner de posicionamento */
+  width: 100%; /* Ajustar o tamanho conforme necessário */
+  height: 300px;
+  margin: 100px;
+}
+
+.galeria img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 16px;
+  transform: translate(-50%, -50%); /* Centraliza a imagem */
+  transition: transform 0.3s ease-in-out;
+}
+
+.galeria img:nth-child(1) {
+  /* Primeira imagem */
+  z-index: 3;
+  /* Ajustar o tamanho e a posição conforme necessário */
+  width: 100%;
+  height: 80%;
+  top: 20%;
+  left: 20%;
+}
+
+.galeria img:nth-child(2) {
+  /* Segunda imagem */
+  z-index: 2;
+  /* Ajustar o tamanho e a posição conforme necessário */
+  width: 100%;
+  height: 70%;
+  top: 40%;
+  left: 40%;
+}
+
+.galeria img:nth-child(3) {
+  /* Terceira imagem */
+  z-index: 1;
+  /* Ajustar o tamanho e a posição conforme necessário */
+  width: 100%;
+  height: 60%;
+  top: 60%;
+  left: 60%;
+}
+
+.galeria img:hover {
+    z-index: 3;
+    box-shadow: 0px 5px 10px rgba(77, 74, 74, 0.8); /* Adiciona uma sombra */
+
+}
+
+.btn {
+   margin: 0 0 50px 120px;
+}
+
+
+.apresentacao-habilidades h1 {
+    color: #b1a364;
+    margin: 100px;
+    padding-top: 100px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+.habilidades {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Espaço entre as colunas */
+    margin: 4% 10%;
+}
+
+
+.habilidade {
+    flex: 1; /* Define que cada coluna ocupa o mesmo espaço */
+    margin: 0 auto;
+}
+
+.progress-bar {
+    background-color: #faefba;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative; /* Define o container como relativo */
+}
+
+.progress {
+    background-color: #b1a364; /* Cor da barra de progresso */
+    height: 100%;
+    border-radius: 5px;
+}
+
+.progress-text {
+    position: absolute;
+    right: 10px; /* Alinha o texto dentro da barra */
+    top: -20px; /* Ajusta para alinhar verticalmente com a barra */
+    font-size: 14px;
+    font-weight: bold;
+    color: #675f3e;
+}
+
+.habilidade h4 {
+    margin: 0 40px 5px 40px;
+    list-style: none;
+    padding: 15px;
+    color: #b1a364;
+}
+
+.nova-apresentacao {
+    display: flex;
+    justify-content: space-between; /* Espaço entre o texto e a imagem */
+    align-items: center; /* Alinha os itens verticalmente */
+    margin: 8% 8% 0 8%;
+    padding: 20px;
+    gap: 40px; /* Espaçamento entre os elementos */
+}
+
+.nova-apresentacao h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.nova-apresentacao h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    opacity: 0.7;
+}
+
+.apresentacao-img img {
+    width: 300px; /* Defina o tamanho desejado */
+    height: 300px; /* O mesmo valor da largura para garantir um círculo */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Centraliza e ajusta a imagem dentro do círculo */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25); /* Sombra sutil à direita e abaixo */
+}
+  
+.apresentacao-texto button {
+    background-color:#b1a364;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 25px 15px 0 0;
+}
+
+.apresentacao-texto button:hover {
+    color: #b1a364;
+    background-color: transparent;
+    border: 1px solid #b1a364; /* Aqui definimos a borda */
+
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: #b1a364; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Espaça os elementos igualmente */
+    flex-wrap: wrap; /* Permite que os elementos se reorganizem em linhas */
+}
+
+.footer-info, .footer-contact, .footer-social {
+    margin: 10px;
+}
+
+.footer-social ul {
+    list-style: none; /* Remove as bolinhas da lista */
+    padding: 0; /* Remove o padding padrão */
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social li {
+    margin: 0 10px; /* Espaçamento entre os itens da lista */
+}
+
+.footer-social a {
+    color: #ffffff; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.footer-social a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
